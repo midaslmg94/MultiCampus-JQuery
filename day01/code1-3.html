@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function () {
+            // 속성 선택자
+            // $(엘리먼트이름[속성이름='속성값'])
+            $('ul[id="submenu"] li').css('color', 'red');
+            $('ul#submenu li').css('background', 'yellow');
+        })
+    </script>
+</head>
+
+<body>
+    <!--
+            <태그명 속성명 = "속성값" 속성명 = "속성값"> 태그값</태그명>
+            태그 -> element
+            속성 -> attribute
+
+        -->
+    <div>
+        <ul id="menu">
+            <li>첫번쨰</li>
+            <li>두번쨰</li>
+            <li>세번째</li>
+            <ul id="submenu">
+                <li>3-1</li>
+                <li>3-2</li>
+                <li>3-3</li>
+            </ul>
+        </ul>
+        <li>삼각형</li>
+        <li>사각형</li>
+        <li>오각형</li>
+        <ol>
+        </ol>
+</body>
+
+</html>

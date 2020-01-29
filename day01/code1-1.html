@@ -1,0 +1,65 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+  }
+    <script>
+        $(function () {
+            // 전체 선택자
+            $("*").css('color', 'red');
+
+            // 후손 선택자
+            $("body *").css('color', 'red');
+
+            // 요소 선택자(element selector)
+            $("H1").css('background', 'yellow');
+
+            // ID 선택자 --> 해당 문서에서 유일해야 함.
+            $("#title").css('border', '3px solid blue');
+
+            // 클래스 선택자 --> 여러개의 태그에 대해 같은 속성을 부여
+            $(".right").css('textAlign', 'right');
+
+            // 다중 선택자
+            $("span, title, .right").css('text-decoration', 'underline');
+
+            // DOM Scripting 한다 --> jQuery가 없었을 때는 이렇게 했음
+            window.onload = () => {
+            let ptags = document.getElementsByTagName("p");
+            for (let p of ptags) {
+                p.innerText = 'ptags';
+            }
+            
+            let title = document.getElementById("title");
+            title.style.borderWidth = '3px';
+            title.style.borderStyle = 'dotted';
+            title.style.borderColor = 'blue';
+            
+            let rights = document.getElementsByClassName("right");
+            for (r of rights) {
+                r.style.textAlign = "center";
+            }
+        }; 
+
+       
+        });
+    </script>
+</head>
+
+<body>
+    <h1 class="right">제목1</h1>
+    <p>내용 내용</p>
+    <p>내용2 내용2</p>
+    <span>다른내용1</span>
+    <span>다른내용2</span>
+    <h1 id="title" class="right">제목2</h1>
+    <p class="right">내용내용22</p>
+    <span>다른내용3</span>
+    <span>다른내용4</span>
+</body>
+
+</html>

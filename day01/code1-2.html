@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+
+    <script>
+        $(function(){
+            $("div *").css('color', 'blue');
+            $("ul").css('background', 'yellow');
+            // id가 menu인 ul 태그 '바로' 아래 있는 li 태그에 대해 밑줄을 삽입 --> 자식
+            $("ul#menu>li").css('text-decoration', 'underline');
+            
+            // id가 menu인 ul 태그 아래 있는 모든 li 태그의 색을 변경 --> 후손
+            $("ul#menu li").css('color', 'green');
+            let lis = $("ul#menu>li");
+            for(i of lis){
+                console.log(i);
+                $(i).css('border', '1px solid red');
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div>
+        <ul id ="menu">
+            <li>첫번쨰</li>
+            <li>두번쨰</li>
+            <li>세번째</li>
+            <ul>
+                <li>3-1</li>
+                <li>3-2</li>
+                <li>3-3</li>
+            </ul>
+        </ul>
+            <li>삼각형</li>
+            <li>사각형</li>
+            <li>오각형</li>
+        <ol>
+        </ol>
+    </div>
+</body>
+
+</html>
