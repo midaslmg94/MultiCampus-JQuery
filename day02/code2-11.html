@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function () {
+            $('button').click(function () {
+                $.ajax({
+                        url: "http://localhost:8080/students.json", // 여기에서 부터 json 데이터를 넘겨 받는다
+                        type: "GET",
+                        dataType: "JSON"
+                    })
+                    .done(function (res) {
+                        console.log(res.students); // 배열로 받음
+                        res.students.forEach(element => {
+                            console.log(element);
+                            console.log(element.name, element.age, element.score);
+                            let x = `
+                            <tr>
+                                <td>${element.name}</td>
+                                <td>${element.age}</td>
+                                <td>${element.score}</td>
+                            </tr>
+                                `;
+                            $('table').html($('table').html() + x);
+
+                        });
+                    });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button>가져오깅</button>
+    <table border="1">
+
+    </table>
+</body>
+
+</html>

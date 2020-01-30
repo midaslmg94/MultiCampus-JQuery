@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function () {
+            /*  jQuery로 짜보자
+                num:배경색을 회색
+                char:배경색을 노란색
+                red, yellow, green, blue -> 글자색
+            */
+            // 아래와 같이 하면 불편하다. 
+            /*
+            $('div.num').css('background', 'gray');
+            $('div.char').css('background', 'coral');
+            $('div.red').css('color', 'red');
+            $('div.blue').css('color', 'blue');
+            $('div.yellow').css('color', 'yellow');
+            $('div.green').css('color', 'green');
+            */
+            // 태그를 가져와서 배열로 짜보자 
+            $('div.num').each(function (index, item) {
+                // 전체 문자열에서 일부 문자만 뽑아오는 함수 : substring()
+                let color = $(item).attr('class').substring(4);
+                $(item).css('color', color);
+
+            });
+            $('div.char').each(function (index, item) {
+                let background = $(item).attr('class').substring(5);
+                $(item).css('background', background);
+            });
+            // 이벤트 핸들링
+            $('div#input div').click(function () {
+                let value = $(this).text(); // div가 가지고 있는 값을 value에 저장
+                console.log(value);
+                let attr = $(this).attr('class');
+                console.log(value, attr);
+                // 클릭한 것을 화면에 출력
+                $('#disp').append(value, attr);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="disp">
+    </div>
+    <div id="input">
+        <div class="num red">1</div>
+        <div class="num blue">2</div>
+        <div class="num coral">3</div>
+        <div class="num green">4</div>
+
+        <div class="char red">하나</div>
+        <div class="char blue">둘</div>
+        <div class="char yellow">셋</div>
+        <div class="char green">넷</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        /* 
+            div 태그 내부에 마우스가 들어가면 배경색을 붉게,
+            빠져나오면 원래 색으로 변경
+        */
+        /*
+            홀수 : red, 짝수 : blue
+            첫번째 : yellow, 마지막 : green*/
+        $(function () {
+            let orgColor;
+            $('div').mouseover(function () {
+                orgColor = $(this).css('background', 'black');
+            }).mouseleave(function () {
+                console.log('진출');
+            });
+        });
+    </script>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid blue;
+            float: left;
+            margin: 20;
+        }
+    </style>
+</head>
+
+<body>
+    <select>
+    </select>
+    <div></div>
+</body>
+
+</html>

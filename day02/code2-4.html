@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        /* 
+            div 박스를 클릭하면 동일한 data가 있으면, 
+            다른 클래스의 data의 박스를 숨김(hide()), 없으면 다른 클래스의 박스를 보이게(show())
+            (단, 추가시 num과 char 클래스는 다르게 설정)
+            -- hide(), show()
+            
+        */
+        $(function () {
+            $('div').click(function(){
+                let cls = $(this).attr('class');
+                let val = $(this).attr('data');
+                // 현재 클릭된 div와 value가 같고 class가 다른 div를 선택 
+                // 속성을 제어해야 하므로 []를 열어줌
+                let el = $('div[data="'+val+'"][class!="'+cls+'"]');
+                /*
+                if(el.is(':visible')){
+                    el.hide();
+                }else{
+                    el.show();
+                }*/
+
+                el.toggle();
+
+            })
+        });
+    </script>
+    <style>
+        div {
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px 20px;
+            width: auto;
+            height: auto;
+            font-size: 30px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="no" data="1">1</div>
+    <div class="no" data="2">2</div>
+    <div class="no" data="3">3</div>
+    <div class="no" data="4">4</div>
+
+    <div class="ch" data="1">one</div>
+    <div class="ch" data="2">two</div>
+    <div class="ch" data="3">three</div>
+    <div class="ch" data="4">four</div>
+
+</body>
+
+</html>

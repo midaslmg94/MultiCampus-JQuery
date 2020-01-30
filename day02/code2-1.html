@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function () {
+            // 성, 이름 입력창에 000을 입력하세요. 문장 추가
+            // 성, 이름의 type이 text이므로 동일함 
+            $('input[name="lastName"]').val("성을"); // .val에 들어가는게 밑에 있는 value임
+            $('input[type="text"]').val("입력하세요");
+
+            // 파일 선택창을 제외하고 나머지 입력창에 대해서(필수입력)을 표시
+            // .prev()는 input 앞 부분을 의미
+            $('input[type!="file"]').prev().append("(필수입력)").css('color', 'red');
+
+            // name 속성에 pw가 포함된 것을 검색
+            $('input[name~="pw"]').css('background','blue');
+            
+            // name 속성이 pw로 시작하는 것을 검색
+            $('input[name^="pw"]').css('border','3px dotted red');
+
+            // name 속성이 Name으로 끝나는 것을 검색
+            $('input[name$="Name"]').css('border', '3px solid');
+
+            // type 속성에 "o"라는 단어가 들어간 입력창을 삭제
+            $('input[type*="o"]').hide();
+        });
+    </script>
+
+</head>
+
+<body>
+    <form action="#" method="get">
+    <label>성</label>
+    <input type="text" name="last Name" value=""> <br>
+
+    <label>이름</label>
+    <input type="text" name="first Name" value=""> <br>
+
+    <label>패스워드</label>:<input type="password" name="pw"> <br>
+    <label>패스워드(확인)</label>:<input type="password" name="pw2"> <br>
+    결혼여부:<input type="radio" name="is_married" value="Y">네
+    <input type="radio" name="is_married" value="N">아니오<br>
+    좋아하는 색깔: <input type="checkbox" name="color" value="red">빨강<br>
+    좋아하는 색깔: <input type="checkbox" name="color" value="blue"">파랑<br>
+    좋아하는 색깔: <input type="checkbox" name="color" value="yellow">노랑<br>
+    사진 : <input type="file" name="photo">
+</form>
+</body>
+
+</html>

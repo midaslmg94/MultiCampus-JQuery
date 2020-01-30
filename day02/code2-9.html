@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/jquery-ui-1.12.1/jquery-ui.css">
+    <link rel="stylesheet" href="/jquery-ui-1.12.1/jquery-ui.theme.css">
+    <script src="/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+    <script src="/jquery-ui-1.12.1/jquery-ui.js"></script> 
+    <!--toast.js 사용-->
+    <script src="node_modules/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+    <link rel="stylesheet" href="node_modules/jquery-toast-plugin/dist/jquery.toast.min.css">
+    <script>
+        $(function () {
+            $("#tabs").tabs();
+            $('input[name="userid"]').focusout(function(){
+                if($(this).val()==""){
+                    // alert("아이디를 입력하세요"); // 없어보임                   
+                    //$("#dialog").dialog(); // jQuery UI 사용
+                    $.toast({
+                        text: "아이디를 입력하세요.",
+                        showHideTransition: 'fade'
+                    });
+                }
+            });
+        });
+    </script>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="tabs">
+        <ul>
+            <li><a href="#matzip">맛집예약</a></li>
+            <li><a href="#hospital">병원예약</a></li>
+            <li><a href="#car">공유자동차예약</a></li>
+        </ul>
+        <div id="matzip">
+            <p>맛집 예약과 관련한 컨텐츠</p>
+        </div>
+        <div id="hospital">
+            <p>병원 예약과 관련한 컨텐츠</p>
+        </div>
+        <div id="car">
+            <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula
+                accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent
+                taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu
+                urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem
+                enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+            <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla
+                facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti.
+                Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio.
+                Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat
+                porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas
+                commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+        </div>
+    </div>
+
+    <input type="text" name="userid">
+
+    <div id="dialog" title="알림">
+        <p>아이디를 입력하지 않았습니다</p>
+    </div>
+</body>
+
+</html>
