@@ -1,0 +1,8 @@
+{
+    "siteinfo":
+    [
+        {"name":"네이버", "url":"https://www.naver.com"},
+        {"name":"다음", "url":"https://www.daum.net"},
+        {"name":"구글", "url":"https://www.google.co.kr"}
+    ]
+}

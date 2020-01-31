@@ -1,4 +1,8 @@
 # MultiCampus-JQuery
+- 서버에 캐시를 남기지 않으려면 `npx http-server -c-1` 명령어를 치면 된다.
+
+
+
 #### JQuery 선택자
 
 - 태그 선택자
